@@ -4,4 +4,11 @@
     <style name="Theme.Qurba" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@color/purple_700</item>
     </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@android:color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenAnimationDuration">500</item>
+        <item name="postSplashScreenTheme">@style/Theme.Qurba</item>
+    </style>
 </resources>
