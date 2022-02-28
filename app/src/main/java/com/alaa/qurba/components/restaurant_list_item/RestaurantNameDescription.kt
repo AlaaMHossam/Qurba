@@ -1,4 +1,4 @@
-package com.alaa.qurba.components.restaurant
+package com.alaa.qurba.components.restaurant_list_item
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -28,7 +28,7 @@ fun RestaurantNameDescription() {
 
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
-                    painter = painterResource(id = R.drawable.img_chicken_chester),
+                    painter = painterResource(id = R.drawable.img_chicken_chester_restaurant),
                     contentDescription = "",
                     modifier = Modifier.size(40.dp)
                 )
