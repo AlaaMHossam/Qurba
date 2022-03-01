@@ -4,25 +4,22 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alaa.qurba.R
 import com.alaa.qurba.ui.theme.Purple100
-import com.alaa.qurba.ui.theme.Purple200
-import com.alaa.qurba.ui.theme.Purple500
 import com.alaa.qurba.ui.theme.QurbaTheme
 
 @Composable
@@ -33,7 +30,7 @@ fun RestaurantTypeMenu() {
             .wrapContentHeight()
             .padding(16.dp)
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(verticalAlignment = CenterVertically) {
             RestaurantIconName()
         }
         RestaurantMenuButton()
@@ -59,29 +56,37 @@ private fun RestaurantIconName() {
 
 @Composable
 private fun RestaurantMenuButton() {
-    Box(modifier = Modifier.padding(top = 8.dp)) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(60.dp)
+            .padding(8.dp)
+    ) {
         Button(
+            shape = CircleShape,
             onClick = {},
-            colors = ButtonDefaults.buttonColors(backgroundColor = Transparent),
+            modifier = Modifier.fillMaxSize(),
+            elevation = ButtonDefaults.elevation(0.dp),
+            content = {}
+        )
+        Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(PaddingValues())
-                .background(shape = CircleShape, brush = gradientBrush),
-            elevation = ButtonDefaults.elevation(0.dp)
-        ) {
-            Text(
-                text = "View Menu",
-                color = Color(0xFF8A50DE),
-            )
-        }
+                .fillMaxSize()
+                .align(alignment = Center)
+                .background(shape = CircleShape, brush = gradientBrush)
+        )
+        Text(
+            modifier = Modifier.align(Center),
+            text = "View Menu",
+            color = Color(0xFF8A50DE),
+        )
     }
 }
 
-val gradientBrush = Brush.horizontalGradient(
-    colors = listOf(
-        Color(0xFF406AE7),
-        Color(0xFF8A50DE)
-    )
+val gradientBrush = Brush.linearGradient(
+    colors = listOf(Color(0x66406AE7), Color(0x668A50DE)),
+    start = Offset(0f, Float.POSITIVE_INFINITY),
+    end = Offset(Float.POSITIVE_INFINITY, 0f)
 )
 
 @Preview

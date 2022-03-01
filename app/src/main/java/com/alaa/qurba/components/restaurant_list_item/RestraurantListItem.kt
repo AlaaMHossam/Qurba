@@ -29,6 +29,7 @@ fun RestaurantListItem() {
             contentDescription = ""
         )
         RestaurantTypeMenu()
+        RestaurantLikeCommentShare()
     }
 }
 
