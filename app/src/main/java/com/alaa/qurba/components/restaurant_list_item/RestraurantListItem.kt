@@ -21,17 +21,13 @@ fun RestaurantListItem() {
             .background(Color.White)
     ) {
         RestaurantNameDescription()
-        Image(
-            modifier = Modifier
-                .height(height = 192.dp)
-                .fillMaxWidth(),
-            painter = painterResource(id = R.drawable.img_chicken_chester),
-            contentDescription = ""
-        )
+        RestaurantImage()
         RestaurantTypeMenu()
         RestaurantLikeCommentShare()
     }
 }
+
+
 
 @Preview
 @Composable

@@ -28,7 +28,7 @@ fun BottomBar() {
     BottomNavigation(
         modifier = Modifier
             .shadow(
-                6.dp,
+                10.dp,
                 RoundedCornerShape(topEnd = 8.dp, topStart = 8.dp),
                 clip = true
             )

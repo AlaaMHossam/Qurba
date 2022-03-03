@@ -21,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.alaa.qurba.R
 import com.alaa.qurba.ui.theme.QurbaTheme
 
@@ -31,23 +32,24 @@ fun Search() {
         Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            //.height(64.dp)
             .padding(start = 16.dp, top = 20.dp, end = 16.dp, bottom = 13.dp)
-
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_user_image),
-                contentDescription = "",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .size(40.dp)
-                    .clip(CircleShape)
-            )
+            UserImage()
             Field(searchValue)
         }
     }
 }
+
+@Composable
+private fun UserImage() = Image(
+    painter = painterResource(id = R.drawable.ic_user_image),
+    contentDescription = "",
+    contentScale = ContentScale.Crop,
+    modifier = Modifier
+        .size(40.dp)
+        .clip(CircleShape)
+)
 
 @Composable
 private fun Field(searchValue: MutableState<String>) {
@@ -56,20 +58,25 @@ private fun Field(searchValue: MutableState<String>) {
         onValueChange = { searchValue.value = it },
         Modifier
             .fillMaxWidth()
+            .height(46.dp)
             .padding(start = 16.dp)
             .shadow(6.dp, CircleShape, clip = true)
             .wrapContentHeight(),
-        placeholder = {
-            Text(
-                text = "Share your food experiences",
-                color = Color(0xFF363636),
-                modifier = Modifier.alpha(0.5F)
-            )
-        },
+        placeholder = { SearchPlaceHolder() },
+        singleLine = true,
         colors = transparentFieldColors(),
-        textStyle = TextStyle(Color.Black),
+        textStyle = TextStyle(Color.Black, fontSize = 12.sp)
     )
 }
+
+@Composable
+private fun SearchPlaceHolder() = Text(
+    fontSize = 12.sp,
+    text = "Share your food experiences",
+    color = Color(0xFF363636),
+    modifier = Modifier.alpha(0.5F)
+)
+
 
 @Composable
 fun transparentFieldColors() = TextFieldDefaults.outlinedTextFieldColors(

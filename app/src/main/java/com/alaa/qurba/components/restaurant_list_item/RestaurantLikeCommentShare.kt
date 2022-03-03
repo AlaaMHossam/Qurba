@@ -36,7 +36,7 @@ fun RestaurantLikeCommentShare() {
 }
 
 @Composable
-fun RestaurantLike() {
+private fun RestaurantLike() {
     Row {
         Text(text = "32K", modifier = Modifier.padding(end = 4.dp))
         Image(
@@ -46,7 +46,7 @@ fun RestaurantLike() {
 }
 
 @Composable
-fun RestaurantComment() {
+private fun RestaurantComment() {
     Row {
         Text(text = "567", modifier = Modifier.padding(end = 4.dp))
         Image(
@@ -56,7 +56,7 @@ fun RestaurantComment() {
 }
 
 @Composable
-fun RestaurantShare() {
+private fun RestaurantShare() {
     Row {
         Text(text = "12.3K", modifier = Modifier.padding(end = 4.dp))
         Image(
