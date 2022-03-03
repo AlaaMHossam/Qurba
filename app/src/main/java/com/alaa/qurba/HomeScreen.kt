@@ -3,15 +3,15 @@ package com.alaa.qurba
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyItemScope
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.alaa.qurba.components.BottomBar
+import com.alaa.qurba.components.bottom_bar.BottomBar
 import com.alaa.qurba.components.Search
 import com.alaa.qurba.components.TopBar
 import com.alaa.qurba.components.restaurant_list_item.RestaurantListItem
@@ -22,6 +22,8 @@ import java.util.*
 
 @Composable
 fun HomeScreen() {
+    val homeViewModel = HomeViewModel()
+
     Box(
         Modifier
             .fillMaxSize()
@@ -30,16 +32,26 @@ fun HomeScreen() {
         Column {
             TopBar()
             Search()
-            val listModel = apiResponse().restaurants
-            LazyColumn(
-               // contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-                modifier = Modifier.fillMaxHeight()
-            ) {
-                items(5) { RestaurantListItem() }
-            }
+            RestaurantsLazyColumn(homeViewModel)
         }
-        Box(modifier = Modifier.align(Alignment.BottomCenter)) {
-            BottomBar()
+        Box(modifier = Modifier.align(Alignment.BottomCenter)) { BottomBar() }
+    }
+}
+
+@Composable
+fun RestaurantsLazyColumn(homeViewModel: HomeViewModel) {
+    val data = homeViewModel.restaurantsList.observeAsState().value
+    homeViewModel.fetchRestaurants()
+
+    if (data?.restaurants?.isNotEmpty() == true) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth()
+        ) {
+            items(data.restaurants) { restaurant ->
+                RestaurantListItem(restaurant = restaurant)
+            }
         }
     }
 }

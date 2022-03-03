@@ -8,15 +8,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alaa.qurba.R
 import com.alaa.qurba.ui.theme.QurbaTheme
 
 @Composable
-fun RestaurantNameDescription() {
+fun RestaurantNameDescription(
+    name: String?,
+    type: String?,
+    lastPost: String?,
+    description: String?
+) {
 
     Box(modifier = Modifier.fillMaxWidth()) {
 
@@ -38,18 +43,18 @@ fun RestaurantNameDescription() {
                 .padding(16.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                RestaurantData()
+                RestaurantData(name, lastPost)
             }
             Text(
                 modifier = Modifier.padding(top = 8.dp),
-                text = stringResource(id = R.string.dummy_description)
+                text = description ?: ""
             )
         }
     }
 }
 
 @Composable
-private fun RestaurantData() {
+private fun RestaurantData(name: String?, lastPost: String?) {
     Image(
         painter = painterResource(id = R.drawable.img_chicken_chester_restaurant),
         contentDescription = "",
@@ -57,14 +62,14 @@ private fun RestaurantData() {
     )
     Column(modifier = Modifier.padding(start = 8.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(text = "Chicken Chester")
+            Text(text = name ?: "")
             Image(
                 painter = painterResource(id = R.drawable.ic_food_list_item),
                 contentDescription = "",
                 Modifier.padding(start = 8.dp)
             )
         }
-        Text(text = "2 days ago")
+        Text(text = lastPost ?: "")
     }
 }
 
@@ -72,6 +77,11 @@ private fun RestaurantData() {
 @Composable
 private fun Preview() {
     QurbaTheme {
-        RestaurantNameDescription()
+        RestaurantNameDescription(
+            "Chicken Chester",
+            "Restaurant",
+            "2 days ago",
+            "restaurant.description"
+        )
     }
 }

@@ -1,4 +1,4 @@
-package com.alaa.qurba.components
+package com.alaa.qurba.components.bottom_bar
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,7 +12,6 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.alaa.qurba.components.bottom_bar.BottomNavigationItem
 import com.alaa.qurba.ui.theme.QurbaTheme
 
 @Composable

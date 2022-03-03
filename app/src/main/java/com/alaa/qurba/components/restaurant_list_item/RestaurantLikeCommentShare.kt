@@ -12,10 +12,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alaa.qurba.R
+import com.alaa.qurba.model.Social
 import com.alaa.qurba.ui.theme.QurbaTheme
+import kotlin.math.ln
+import kotlin.math.pow
 
 @Composable
-fun RestaurantLikeCommentShare() {
+fun RestaurantLikeCommentShare(social: Social?) {
     Box(modifier = Modifier.padding(16.dp)) {
         Column {
             Divider(color = Color(0xFF979797))
@@ -26,7 +29,7 @@ fun RestaurantLikeCommentShare() {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                RestaurantLike()
+                RestaurantLike(social?.likes)
                 RestaurantComment()
                 RestaurantShare()
             }
@@ -36,9 +39,9 @@ fun RestaurantLikeCommentShare() {
 }
 
 @Composable
-private fun RestaurantLike() {
+private fun RestaurantLike(likes: Int?) {
     Row {
-        Text(text = "32K", modifier = Modifier.padding(end = 4.dp))
+        Text(text = getFormattedNumber(likes), modifier = Modifier.padding(end = 4.dp))
         Image(
             painter = painterResource(id = R.drawable.ic_like), contentDescription = ""
         )
@@ -65,10 +68,19 @@ private fun RestaurantShare() {
     }
 }
 
+fun getFormattedNumber(count: Int?): String {
+    if (count != null) {
+        if (count < 1000) return "" + count
+        val exp = (ln(count.toDouble()) / ln(1000.0)).toInt()
+        return String.format("%.1f %c", count / 1000.0.pow(exp.toDouble()), "kMGTPE"[exp - 1])
+    }
+    return ""
+}
+
 @Preview
 @Composable
 private fun Preview() {
     QurbaTheme {
-        RestaurantLikeCommentShare()
+        RestaurantLikeCommentShare(Social())
     }
 }

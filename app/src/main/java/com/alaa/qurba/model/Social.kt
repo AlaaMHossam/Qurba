@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName
 
 data class Social(
     @SerializedName("comments")
-    val comments: Int? = 0,
+    val comments: Int? = 950,
     @SerializedName("likes")
-    val likes: Int? = 0,
+    val likes: Int? = 950,
     @SerializedName("shares")
     val shares: Int? = 0
 )
