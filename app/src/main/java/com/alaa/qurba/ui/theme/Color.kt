@@ -10,6 +10,7 @@ val Teal200 = Color(0xFF03DAC5)
 
 // App Colors
 // Shimmer Colors
+val StatusBarColor = Color(0x80494949)
 val ShimmerColor = Color(0xFFD3DCE2)
 val ShimmerColorShades = listOf(
     ShimmerColor.copy(0.9f),
