@@ -15,6 +15,7 @@ import com.alaa.qurba.components.bottom_bar.BottomBar
 import com.alaa.qurba.components.Search
 import com.alaa.qurba.components.TopBar
 import com.alaa.qurba.components.restaurant_list_item.RestaurantListItem
+import com.alaa.qurba.components.restaurant_shimmer_item.ShimmerAnimation
 import com.alaa.qurba.model.RestaurantsList
 import com.alaa.qurba.ui.theme.QurbaTheme
 import com.google.gson.Gson
@@ -43,16 +44,16 @@ fun RestaurantsLazyColumn(homeViewModel: HomeViewModel) {
     val data = homeViewModel.restaurantsList.observeAsState().value
     homeViewModel.fetchRestaurants()
 
-    if (data?.restaurants?.isNotEmpty() == true) {
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxHeight()
-                .fillMaxWidth()
-        ) {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxHeight()
+            .fillMaxWidth()
+    ) {
+        if (data?.restaurants?.isNotEmpty() == true) {
             items(data.restaurants) { restaurant ->
                 RestaurantListItem(restaurant = restaurant)
             }
-        }
+        } else items(2) { ShimmerAnimation() }
     }
 }
 

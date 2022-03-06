@@ -9,3 +9,10 @@ val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 
 // App Colors
+// Shimmer Colors
+val ShimmerColor = Color(0xFFD3DCE2)
+val ShimmerColorShades = listOf(
+    ShimmerColor.copy(0.9f),
+    ShimmerColor.copy(0.2f),
+    ShimmerColor.copy(0.9f)
+)
