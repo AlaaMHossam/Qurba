@@ -21,7 +21,7 @@ fun ShimmerItem(
         modifier = Modifier
             .fillMaxWidth()
             .background(color = Color.White)
-            .padding(16.dp)
+        //.padding(16.dp)
     ) {
         Column {
             ShimmerLogoName(brush)
@@ -36,7 +36,7 @@ fun ShimmerItem(
 private fun ShimmerLogoName(brush: Brush) = Row(
     modifier = Modifier
         .fillMaxWidth()
-        .padding(bottom = 8.dp)
+        .padding(bottom = 8.dp, top = 16.dp, start = 16.dp, end = 16.dp)
 ) {
     Spacer(
         modifier = Modifier
@@ -78,7 +78,9 @@ private fun ShimmerImage(brush: Brush) = Spacer(
 @Composable
 private fun ShimmerDetails(brush: Brush) =
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 8.dp, top = 16.dp, start = 16.dp, end = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Spacer(
@@ -109,9 +111,10 @@ private fun Preview() {
     QurbaTheme {
         ShimmerItem(
             Brush.linearGradient(
-            colors = ShimmerColorShades,
-            start = Offset(10f, 10f),
-            end = Offset(1F, 1F)
-        ))
+                colors = ShimmerColorShades,
+                start = Offset(10f, 10f),
+                end = Offset(1F, 1F)
+            )
+        )
     }
 }
