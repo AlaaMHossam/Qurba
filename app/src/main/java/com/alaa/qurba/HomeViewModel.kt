@@ -23,5 +23,5 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    private fun restaurants() = mutableListOf<Restaurant>().apply { repeat(5) { add(Restaurant()) } }
+    private fun restaurants() = mutableListOf<Restaurant>().apply { repeat(1) { add(Restaurant()) } }
 }

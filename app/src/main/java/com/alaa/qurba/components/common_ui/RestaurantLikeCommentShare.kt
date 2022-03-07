@@ -1,4 +1,4 @@
-package com.alaa.qurba.components.restaurant_list_item
+package com.alaa.qurba.components.common_ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -18,7 +18,7 @@ import kotlin.math.ln
 import kotlin.math.pow
 
 @Composable
-fun RestaurantLikeCommentShare(social: Social?) {
+fun RestaurantLikeCommentShare(social: Social?, showBottomLine: Boolean) {
     Box(modifier = Modifier.padding(16.dp)) {
         Column {
             Divider(color = Color(0xFF979797))
@@ -33,7 +33,8 @@ fun RestaurantLikeCommentShare(social: Social?) {
                 RestaurantComment()
                 RestaurantShare()
             }
-            Divider(color = Color(0xFF979797))
+            if (showBottomLine)
+                Divider(color = Color(0xFF979797))
         }
     }
 }
@@ -81,6 +82,6 @@ fun getFormattedNumber(count: Int?): String {
 @Composable
 private fun Preview() {
     QurbaTheme {
-        RestaurantLikeCommentShare(Social())
+        RestaurantLikeCommentShare(Social(), true)
     }
 }

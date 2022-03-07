@@ -60,7 +60,7 @@ fun CommentListItem() = Row(
 
 @Composable
 fun SocialDataRow() = Row(
-    modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+    modifier = Modifier.padding(top = 8.dp),
     horizontalArrangement = Arrangement.spacedBy(8.dp),
     verticalAlignment = Alignment.CenterVertically
 ) {
