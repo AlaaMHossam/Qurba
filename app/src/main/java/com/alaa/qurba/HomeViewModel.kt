@@ -18,7 +18,7 @@ class HomeViewModel : ViewModel() {
     fun fetchRestaurants() {
         viewModelScope.launch {
    //         _restaurantsData.postValue(RestaurantsList())
-            delay(5000)
+            delay(2000)
             _restaurantsData.postValue(RestaurantsList(restaurants()))
         }
     }

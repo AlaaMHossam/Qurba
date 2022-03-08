@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alaa.qurba.R
@@ -28,7 +29,7 @@ fun RestaurantTypeMenu() {
         Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(16.dp)
+            .padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 8.dp)
     ) {
         Row(verticalAlignment = CenterVertically) {
             RestaurantIconName()
@@ -49,7 +50,7 @@ private fun RestaurantIconName() {
     )
 
     Column(Modifier.padding(start = 8.dp)) {
-        Text(text = "Chicken Chester")
+        Text(text = "Chicken Chester", fontWeight = FontWeight.SemiBold)
         Text(text = "Cafe & Restaurant")
     }
 }
@@ -60,7 +61,7 @@ private fun RestaurantMenuButton() {
         modifier = Modifier
             .fillMaxWidth()
             .height(60.dp)
-            .padding(8.dp)
+            .padding(top = 8.dp, bottom = 8.dp)
     ) {
         Button(
             shape = CircleShape,

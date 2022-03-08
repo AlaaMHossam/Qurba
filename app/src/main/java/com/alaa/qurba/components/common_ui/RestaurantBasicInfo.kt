@@ -27,7 +27,8 @@ fun RestaurantBasicInfo() {
             Text(
                 text = "Chicken MACDO, Carmel Sandae, Big Tasty, Mc Royal",
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
+                fontWeight = FontWeight.SemiBold
             )
             Text(text = "Mcdonald's", style = TextStyle(fontWeight = FontWeight.Light))
         }

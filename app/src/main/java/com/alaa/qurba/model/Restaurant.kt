@@ -9,7 +9,7 @@ data class Restaurant(
     @SerializedName("id")
     val id: Int? = 0,
     @SerializedName("last_post")
-    val lastPost: String? = "2 Days ago",
+    val lastPost: String? = "2 days ago",
     @SerializedName("name")
     val name: String? = "Chicken Chester",
     @SerializedName("social")

@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alaa.qurba.R
@@ -19,15 +20,15 @@ import kotlin.math.pow
 
 @Composable
 fun RestaurantLikeCommentShare(social: Social?, showTopLine: Boolean, showBottomLine: Boolean) {
-    Box(modifier = Modifier.padding(16.dp)) {
+    Box(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
         Column {
             if (showTopLine)
-                Divider(color = Color(0xFF979797))
+                Divider(modifier = Modifier.height(0.5.dp), color = Color(0xFF979797))
 
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 16.dp, bottom = 16.dp),
+                    .padding(top = 8.dp, bottom = 8.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -37,7 +38,7 @@ fun RestaurantLikeCommentShare(social: Social?, showTopLine: Boolean, showBottom
             }
 
             if (showBottomLine)
-                Divider(color = Color(0xFF979797))
+                Divider(modifier = Modifier.height(0.5.dp), color = Color(0xFF979797))
         }
     }
 }
@@ -45,7 +46,11 @@ fun RestaurantLikeCommentShare(social: Social?, showTopLine: Boolean, showBottom
 @Composable
 private fun RestaurantLike(likes: Int?) {
     Row {
-        Text(text = getFormattedNumber(likes), modifier = Modifier.padding(end = 4.dp))
+        Text(
+            text = getFormattedNumber(likes),
+            modifier = Modifier.padding(end = 4.dp),
+            fontWeight = FontWeight.SemiBold
+        )
         Image(
             painter = painterResource(id = R.drawable.ic_like), contentDescription = ""
         )
@@ -55,7 +60,12 @@ private fun RestaurantLike(likes: Int?) {
 @Composable
 private fun RestaurantComment() {
     Row {
-        Text(text = "567", modifier = Modifier.padding(end = 4.dp))
+        Text(
+            text = "567",
+            modifier = Modifier.padding(end = 4.dp),
+            fontWeight = FontWeight.SemiBold
+        )
+
         Image(
             painter = painterResource(id = R.drawable.ic_comment), contentDescription = ""
         )
@@ -65,7 +75,11 @@ private fun RestaurantComment() {
 @Composable
 private fun RestaurantShare() {
     Row {
-        Text(text = "12.3K", modifier = Modifier.padding(end = 4.dp))
+        Text(
+            text = "12.3K",
+            modifier = Modifier.padding(end = 4.dp),
+            fontWeight = FontWeight.SemiBold
+        )
         Image(
             painter = painterResource(id = R.drawable.ic_share), contentDescription = ""
         )

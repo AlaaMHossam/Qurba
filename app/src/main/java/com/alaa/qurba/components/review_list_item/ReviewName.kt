@@ -11,8 +11,10 @@ import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.alaa.qurba.R
 import com.alaa.qurba.ui.theme.QurbaTheme
 
@@ -46,7 +48,8 @@ fun ReviewName(
             }
             Text(
                 modifier = Modifier.padding(top = 8.dp),
-                text = description ?: ""
+                text = description ?: "",
+                fontSize = 14.sp
             )
         }
     }
@@ -61,12 +64,12 @@ private fun ReviewData(name: String?, lastPost: String?) {
     )
     Column(modifier = Modifier.padding(start = 8.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(text = name ?: "")
+            Text(text = name ?: "", fontWeight = FontWeight.SemiBold)
             Image(
                 painter = painterResource(id = R.drawable.ic_right_chivron),
                 contentDescription = "", Modifier.padding(start = 8.dp, end = 8.dp)
             )
-            Text(text = "Chicken Chester")
+            Text(modifier = Modifier.padding(end = 16.dp), maxLines = 1, text = "Chicken Chester", fontWeight = FontWeight.SemiBold, overflow = TextOverflow.Ellipsis)
         }
         Text(text = lastPost ?: "", style = TextStyle(fontWeight = FontWeight.Light))
     }

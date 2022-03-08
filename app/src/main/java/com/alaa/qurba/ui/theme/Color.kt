@@ -12,10 +12,12 @@ val Teal200 = Color(0xFF03DAC5)
 // Shimmer Colors
 val StatusBarColor = Color(0x80494949)
 val LightGray = Color(0xFFCACACA)
-val CommentColor = Color(0xFFEFF2F5)
+val CommentColor = Color(0x80EFF2F5)
 val ShimmerColor = Color(0xFFD3DCE2)
 val ShimmerColorShades = listOf(
     ShimmerColor.copy(0.9f),
     ShimmerColor.copy(0.2f),
     ShimmerColor.copy(0.9f)
 )
+
+val TextColor = Color(0xFF363636)

@@ -3,6 +3,7 @@ package com.alaa.qurba.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
@@ -65,7 +66,7 @@ private fun Field(searchValue: MutableState<String>) {
         placeholder = { SearchPlaceHolder() },
         singleLine = true,
         colors = transparentFieldColors(),
-        textStyle = TextStyle(Color.Black, fontSize = 12.sp)
+        textStyle = MaterialTheme.typography.caption
     )
 }
 

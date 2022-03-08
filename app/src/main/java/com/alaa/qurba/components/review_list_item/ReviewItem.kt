@@ -40,7 +40,7 @@ fun ReviewItem(isVerified: Boolean) {
             )
             Column(modifier = Modifier.padding(start = 8.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "Rayna Rhiel Madsen")
+                    Text(text = "Rayna Rhiel Madsen", fontWeight = FontWeight.SemiBold)
                     if (isVerified == true)
                         Image(
                             painter = painterResource(id = R.drawable.ic_check),
