@@ -20,6 +20,7 @@ import com.alaa.qurba.components.TopBar
 import com.alaa.qurba.components.post_list_item.PostListItem
 import com.alaa.qurba.components.restaurant_list_item.RestaurantListItem
 import com.alaa.qurba.components.restaurant_shimmer_item.ShimmerAnimation
+import com.alaa.qurba.components.review_list_item.ReviewListItem
 import com.alaa.qurba.model.RestaurantsList
 import com.alaa.qurba.ui.theme.QurbaTheme
 import com.alaa.qurba.ui.theme.ShimmerColor
@@ -55,12 +56,12 @@ fun RestaurantsLazyColumn(homeViewModel: HomeViewModel) {
             .padding(bottom = 64.dp)
     ) {
         if (data?.restaurants?.isNotEmpty() == true) {
-            itemsIndexed(data.restaurants) { index, restaurant ->
+            items(data.restaurants) { restaurant ->
                 RestaurantListItem(restaurant = restaurant)
                 Divider(color = ShimmerColor, thickness = 4.dp)
                 PostListItem()
-                if (index < data.restaurants.lastIndex)
-                    Divider(color = ShimmerColor, thickness = 4.dp)
+                Divider(color = ShimmerColor, thickness = 4.dp)
+                ReviewListItem()
             }
         } else items(2) {
             ShimmerAnimation()

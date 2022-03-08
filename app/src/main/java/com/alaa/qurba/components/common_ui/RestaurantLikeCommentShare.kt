@@ -18,10 +18,12 @@ import kotlin.math.ln
 import kotlin.math.pow
 
 @Composable
-fun RestaurantLikeCommentShare(social: Social?, showBottomLine: Boolean) {
+fun RestaurantLikeCommentShare(social: Social?, showTopLine: Boolean, showBottomLine: Boolean) {
     Box(modifier = Modifier.padding(16.dp)) {
         Column {
-            Divider(color = Color(0xFF979797))
+            if (showTopLine)
+                Divider(color = Color(0xFF979797))
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -33,6 +35,7 @@ fun RestaurantLikeCommentShare(social: Social?, showBottomLine: Boolean) {
                 RestaurantComment()
                 RestaurantShare()
             }
+
             if (showBottomLine)
                 Divider(color = Color(0xFF979797))
         }
@@ -82,6 +85,6 @@ fun getFormattedNumber(count: Int?): String {
 @Composable
 private fun Preview() {
     QurbaTheme {
-        RestaurantLikeCommentShare(Social(), true)
+        RestaurantLikeCommentShare(Social(), true, true)
     }
 }

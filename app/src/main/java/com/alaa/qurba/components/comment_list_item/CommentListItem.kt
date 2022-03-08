@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.alaa.qurba.R
+import com.alaa.qurba.ui.theme.CommentColor
 import com.alaa.qurba.ui.theme.QurbaTheme
 import com.alaa.qurba.ui.theme.ShimmerColor
 
@@ -45,7 +46,7 @@ fun CommentListItem() = Row(
     Column {
         Box(
             modifier = Modifier
-                .background(shape = RoundedCornerShape(8.dp), color = ShimmerColor)
+                .background(shape = RoundedCornerShape(8.dp), color = CommentColor)
                 .padding(8.dp)
         ) {
             Column {

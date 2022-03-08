@@ -1,4 +1,4 @@
-package com.alaa.qurba.components.post_list_item
+package com.alaa.qurba.components.review_list_item
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,10 +17,9 @@ import com.alaa.qurba.R
 import com.alaa.qurba.ui.theme.QurbaTheme
 
 @Composable
-fun PostNameDescription(
+fun ReviewName(
     name: String?,
-    isVerified: Boolean?,
-    lastPost: String?,
+    time: String?,
     description: String?
 ) {
 
@@ -43,7 +42,7 @@ fun PostNameDescription(
                 .padding(16.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                PostData(name, isVerified, lastPost)
+                ReviewData(name, time)
             }
             Text(
                 modifier = Modifier.padding(top = 8.dp),
@@ -54,7 +53,7 @@ fun PostNameDescription(
 }
 
 @Composable
-private fun PostData(name: String?, isVerified: Boolean?, lastPost: String?) {
+private fun ReviewData(name: String?, lastPost: String?) {
     Image(
         painter = painterResource(id = R.drawable.ic_user_image_3),
         contentDescription = "",
@@ -63,17 +62,13 @@ private fun PostData(name: String?, isVerified: Boolean?, lastPost: String?) {
     Column(modifier = Modifier.padding(start = 8.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(text = name ?: "")
-            if (isVerified == true)
-                Image(
-                    painter = painterResource(id = R.drawable.ic_check),
-                    contentDescription = "",
-                    Modifier.padding(start = 8.dp)
-                )
+            Image(
+                painter = painterResource(id = R.drawable.ic_right_chivron),
+                contentDescription = "", Modifier.padding(start = 8.dp, end = 8.dp)
+            )
+            Text(text = "Chicken Chester")
         }
-        Row {
-            Text(text = "Verified . ", style = TextStyle(fontWeight = FontWeight.Light))
-            Text(text = lastPost ?: "", style = TextStyle(fontWeight = FontWeight.Light))
-        }
+        Text(text = lastPost ?: "", style = TextStyle(fontWeight = FontWeight.Light))
     }
 }
 
@@ -81,9 +76,8 @@ private fun PostData(name: String?, isVerified: Boolean?, lastPost: String?) {
 @Composable
 private fun Preview() {
     QurbaTheme {
-        PostNameDescription(
-            "Rayna Rosser",
-            true,
+        ReviewName(
+            "Skylarani  Arcand",
             "2 days ago",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros est, blandit eu nunc sit amet"
         )

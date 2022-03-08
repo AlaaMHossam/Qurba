@@ -11,10 +11,10 @@ import com.alaa.qurba.ui.theme.QurbaTheme
 @Composable
 fun PostListItem() {
     Column {
-        PostNameDescription(name = "Rayna Rosser", type = "", lastPost = "2 days ago", description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros est, blandit eu nunc sit amet")
+        PostNameDescription(name = "Rayna Rosser", isVerified = true, lastPost = "2 days ago", description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros est, blandit eu nunc sit amet")
         PostImages()
         RestaurantBasicInfo()
-        RestaurantLikeCommentShare(social = Social(), showBottomLine = false)
+        RestaurantLikeCommentShare(social = Social(), showTopLine = true, showBottomLine = false)
     }
 }
 

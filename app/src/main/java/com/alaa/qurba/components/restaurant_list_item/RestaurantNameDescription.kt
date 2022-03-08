@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -18,7 +17,6 @@ import com.alaa.qurba.ui.theme.QurbaTheme
 @Composable
 fun RestaurantNameDescription(
     name: String?,
-    type: String?,
     lastPost: String?,
     description: String?
 ) {
@@ -79,7 +77,6 @@ private fun Preview() {
     QurbaTheme {
         RestaurantNameDescription(
             "Chicken Chester",
-            "Restaurant",
             "2 days ago",
             "restaurant.description"
         )

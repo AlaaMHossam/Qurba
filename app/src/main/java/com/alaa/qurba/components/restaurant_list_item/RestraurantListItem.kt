@@ -21,13 +21,12 @@ fun RestaurantListItem(restaurant: Restaurant) {
     ) {
         RestaurantNameDescription(
             restaurant.name,
-            restaurant.type,
             restaurant.lastPost,
             restaurant.description
         )
         RestaurantImage()
         RestaurantTypeMenu()
-        RestaurantLikeCommentShare(restaurant.social, true)
+        RestaurantLikeCommentShare(restaurant.social, true, true)
         Column {
             CommentListItem()
         }
